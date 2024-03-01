@@ -6,7 +6,7 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
     case Actions.EXAMPLE_ACTION:
       return {
         ...currentState,
-        screen: ScreensTypes.examplePage
+        example: action.payload
       };
     default:
       return currentState;

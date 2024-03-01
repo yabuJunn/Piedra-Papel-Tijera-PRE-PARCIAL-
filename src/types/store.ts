@@ -5,6 +5,7 @@ export type Observer = HTMLElement & { render: () => void };
 export interface Action {
   type: Actions;
   payload: string;
+  reload: boolean
 }
 
 export enum Actions {
@@ -17,4 +18,5 @@ export interface AppState {
     name: string,
     password: string
   },
+  example: string
 }
