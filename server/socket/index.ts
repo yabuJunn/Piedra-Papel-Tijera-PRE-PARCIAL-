@@ -21,6 +21,13 @@ io.on('connection', (socket: Socket) => {
     console.log(`With socket session ID of: ${socket.id}`)
 
     if (!database.player1) {
+        database.player1 = socket.id
         socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "player1" }))
+    } else if (!database.player2) {
+        database.player2 = socket.id
+        socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "player2" }))
+    } else {
+        socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "full" }))
     }
+    console.log(database)
 })

@@ -11,3 +11,9 @@ export const updatePlayer1 = (payload: string | undefined, reload: boolean): Act
   payload,
   reload
 });
+
+export const updatePlayer2 = (payload: string | undefined, reload: boolean): Action => ({
+  type: Actions.UPDATE_PLAYER_1,
+  payload,
+  reload
+});
