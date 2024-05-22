@@ -5,3 +5,9 @@ export const updateMyId = (payload: string | undefined, reload: boolean): Action
   payload,
   reload
 });
+
+export const updatePlayer1 = (payload: string | undefined, reload: boolean): Action => ({
+  type: Actions.UPDATE_PLAYER_1,
+  payload,
+  reload
+});

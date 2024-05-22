@@ -8,10 +8,7 @@ export interface Action {
 
 export enum Actions {
   "UPDATE_MY_ID" = "UPDATE_MY_ID",
-  "UPDATE_ROOM_ID" = "UPDATE_ROOM_ID",
-  "UPDATE_USER_ID" = "UPDATE_USER_ID",
-  "UPDATE_OUTSIDE_USER_ID" = "UPDATE_OTHER_USER_ID",
-  "UPDATE_INSIDE_USER_ID" = "UPDATE_INHER_USER_ID"
+  "UPDATE_PLAYER_1" = "UPDATE_PLAYER_1"
 }
 
 export interface AppState {

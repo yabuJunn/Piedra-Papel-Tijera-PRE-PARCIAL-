@@ -34,7 +34,7 @@ class AppContainer extends HTMLElement {
             } else {
                 pageInfo.innerText = "Esperando que comience el juego"
             }
-            
+
             pageContainer.appendChild(pageInfo)
 
             const buttonContainer = this.ownerDocument.createElement("div")
