@@ -18,4 +18,6 @@ io.on('connection', (socket: Socket) => {
 
     console.log(`A user has connected from: ${socket.client.request.headers.origin}`)
     console.log(`With socket session ID of: ${socket.id}`)
+
+    socket.emit('initializePlayer', socket.id)
 })

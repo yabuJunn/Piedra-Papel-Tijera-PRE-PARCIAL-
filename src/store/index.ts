@@ -1,16 +1,15 @@
-import { ScreensTypes } from "../types/screens";
 import { Action, AppState, Observer } from "../types/store";
 import { reducer } from "./reducer";
 
 const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.landingPage,
-    insideUser: undefined,
-    outsideUser: undefined,
-    sessionClothes: [],
-    userId: undefined,
-    roomId: undefined
+    currentTurn: undefined,
+    player1: undefined,
+    player2: undefined,
+    win: false,
+    playing: false,
+    myId: undefined
 };
 
 export const dispatch = (action: Action) => {

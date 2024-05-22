@@ -1,5 +1,3 @@
-import { ScreensTypes } from "./screens";
-
 export type Observer = HTMLElement & { render: () => void };
 
 export interface Action {
@@ -9,7 +7,7 @@ export interface Action {
 }
 
 export enum Actions {
-  "CHANGE_SCREEN" = "CHANGE_SCREEN",
+  "UPDATE_MY_ID" = "UPDATE_MY_ID",
   "UPDATE_ROOM_ID" = "UPDATE_ROOM_ID",
   "UPDATE_USER_ID" = "UPDATE_USER_ID",
   "UPDATE_OUTSIDE_USER_ID" = "UPDATE_OTHER_USER_ID",
@@ -17,12 +15,12 @@ export enum Actions {
 }
 
 export interface AppState {
-  screen: ScreensTypes
-  insideUser: user | undefined
-  outsideUser: user | undefined
-  sessionClothes: Array<clothes>,
-  userId: string | undefined,
-  roomId: undefined | string
+  currentTurn: undefined | string,
+  player1: string | undefined,
+  player2: string | undefined,
+  win: boolean,
+  playing: boolean,
+  myId: string | undefined
 }
 
 interface user {

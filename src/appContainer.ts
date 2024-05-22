@@ -2,6 +2,7 @@ import "./export";
 import { loadCss } from "./utilities/styles";
 import { addObserver, dispatch, state } from "./store";
 import styles from './appContainer.css'
+import './utilities/socket'
 
 class AppContainer extends HTMLElement {
     constructor() {
@@ -28,7 +29,12 @@ class AppContainer extends HTMLElement {
             pageContainer.appendChild(pageTitle)
 
             const pageInfo = this.ownerDocument.createElement("p")
-            pageInfo.innerText = "Esperando que comience el juego"
+            if (state.myId) {
+                pageInfo.innerText = `Conectado con ID ${state.myId}`
+            } else {
+                pageInfo.innerText = "Esperando que comience el juego"
+            }
+            
             pageContainer.appendChild(pageInfo)
 
             const buttonContainer = this.ownerDocument.createElement("div")
