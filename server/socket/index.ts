@@ -34,7 +34,7 @@ io.on('connection', (socket: Socket) => {
             io.emit('updateTurn', "player1") //No manda el mensaje al player1
         }, 1000)
     } else {
-        socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "full" }))
+        socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "player0" }))
     }
     console.log(database)
 })

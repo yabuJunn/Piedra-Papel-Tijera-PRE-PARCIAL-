@@ -29,3 +29,9 @@ export const updateTurn = (payload: undefined | boolean, reload: boolean): Actio
   payload,
   reload
 });
+
+export const updatePlayerType = (payload: undefined | boolean, reload: boolean): Action => ({
+  type: Actions.UPDATE_PLAYER_TYPE,
+  payload,
+  reload
+});

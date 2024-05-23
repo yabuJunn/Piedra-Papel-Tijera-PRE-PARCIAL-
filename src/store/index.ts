@@ -10,6 +10,7 @@ export let state: AppState = {
     win: false,
     playing: false,
     myId: undefined,
+    playerType: undefined
 };
 
 export const dispatch = (action: Action) => {

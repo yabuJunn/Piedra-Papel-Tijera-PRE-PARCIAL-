@@ -31,6 +31,9 @@ class AppContainer extends HTMLElement {
             const idInfo = this.ownerDocument.createElement("p")
             if (state.myId) {
                 idInfo.innerText = `Conectado con ID ${state.myId}`
+                if (state.playerType === "player0") {
+                    idInfo.innerText += `Tu eres player0, no puedes jugar`
+                }
                 if (state.player1) {
                     idInfo.innerText += `Tu eres player1`
                 } else if (state.player2) {
@@ -68,17 +71,19 @@ class AppContainer extends HTMLElement {
             buttonContainer.appendChild(scissorsButton)
 
             if (state.playing) {
-                rockButton.addEventListener('click', () => {
-                    console.log("rockButton")
-                })
+                if (state.currentTurn === state.playerType) {
+                    rockButton.addEventListener('click', () => {
+                        console.log("rockButton")
+                    })
 
-                paperButton.addEventListener('click', () => {
-                    console.log("paperButton")
-                })
+                    paperButton.addEventListener('click', () => {
+                        console.log("paperButton")
+                    })
 
-                scissorsButton.addEventListener('click', () => {
-                    console.log("scissorsButton")
-                })
+                    scissorsButton.addEventListener('click', () => {
+                        console.log("scissorsButton")
+                    })
+                }
             }
         }
     }

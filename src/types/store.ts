@@ -11,7 +11,8 @@ export enum Actions {
   "UPDATE_PLAYER_1" = "UPDATE_PLAYER_1",
   "UPDATE_PLAYER_2" = "UPDATE_PLAYER_2",
   "UPDATE_GAME_STATE" = "UPDATE_GAME_STATE",
-  "UPDATE_TURN" = "UPDATE_TURN"
+  "UPDATE_TURN" = "UPDATE_TURN",
+  "UPDATE_PLAYER_TYPE" = "UPDATE_PLAYER_TYPE"
 }
 
 export interface AppState {
@@ -20,7 +21,8 @@ export interface AppState {
   player2: string | undefined,
   win: boolean,
   playing: boolean,
-  myId: string | undefined
+  myId: string | undefined,
+  playerType: string | undefined
 }
 
 interface user {

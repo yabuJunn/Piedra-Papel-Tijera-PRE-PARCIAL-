@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 import { dispatch } from "../store";
-import { updateGameState, updateMyId, updatePlayer1, updatePlayer2, updateTurn } from "../store/actions";
+import { updateGameState, updateMyId, updatePlayer1, updatePlayer2, updatePlayerType, updateTurn } from "../store/actions";
 
 export const socketClient = io("http://localhost:5500")
 
@@ -15,12 +15,21 @@ socketClient.on('initializePlayer', (data) => {
         dispatch(
             updatePlayer1(dataJSON.myId, true)
         )
+        dispatch(
+            updatePlayerType(dataJSON.player, true)
+        )
     } else if (dataJSON.player === "player2") {
         dispatch(
             updatePlayer2(dataJSON.myId, true)
         )
-    } else if (dataJSON.player === "full") {
+        dispatch(
+            updatePlayerType(dataJSON.player, true)
+        )
+    } else if (dataJSON.player === "player0") {
         alert("El juego esta lleno")
+        dispatch(
+            updatePlayerType(dataJSON.player, true)
+        )
     }
 })
 

@@ -33,6 +33,12 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         currentTurn: action.payload
       };
 
+    case Actions.UPDATE_PLAYER_TYPE:
+      return {
+        ...currentState,
+        playerType: action.payload
+      };
+
     default:
       return currentState;
   }
