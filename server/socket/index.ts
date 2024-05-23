@@ -26,6 +26,10 @@ io.on('connection', (socket: Socket) => {
     } else if (!database.player2) {
         database.player2 = socket.id
         socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "player2" }))
+        database.playing = true
+        setTimeout(() => {
+            io.emit('startGame', "true") //No manda el mensaje al player1
+        }, 1000)
     } else {
         socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "full" }))
     }

@@ -9,4 +9,6 @@ export interface databaseType {
     player2: string,
     win: boolean,
     playing: boolean,
+    player1Wins: number | undefined,
+    player2Wins: number | undefined,
 }

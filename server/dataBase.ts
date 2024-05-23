@@ -5,5 +5,7 @@ export const database: databaseType = {
     player1: "",
     player2: "",
     win: false,
-    playing: false
+    playing: false,
+    player1Wins: undefined,
+    player2Wins: undefined,
 }

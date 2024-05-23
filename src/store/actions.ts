@@ -17,3 +17,9 @@ export const updatePlayer2 = (payload: string | undefined, reload: boolean): Act
   payload,
   reload
 });
+
+export const updateGameState = (payload: undefined | boolean, reload: boolean): Action => ({
+  type: Actions.UPDATE_GAME_STATE,
+  payload,
+  reload
+});

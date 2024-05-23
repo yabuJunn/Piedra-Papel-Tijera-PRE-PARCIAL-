@@ -9,7 +9,8 @@ export interface Action {
 export enum Actions {
   "UPDATE_MY_ID" = "UPDATE_MY_ID",
   "UPDATE_PLAYER_1" = "UPDATE_PLAYER_1",
-  "UPDATE_PLAYER_2" = "UPDATE_PLAYER_2"
+  "UPDATE_PLAYER_2" = "UPDATE_PLAYER_2",
+  "UPDATE_GAME_STATE" = "UPDATE_GAME_STATE"
 }
 
 export interface AppState {

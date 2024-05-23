@@ -9,7 +9,7 @@ export let state: AppState = {
     player2: undefined,
     win: false,
     playing: false,
-    myId: undefined
+    myId: undefined,
 };
 
 export const dispatch = (action: Action) => {

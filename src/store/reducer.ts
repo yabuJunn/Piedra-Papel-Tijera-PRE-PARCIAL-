@@ -15,6 +15,12 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         player1: action.payload
       };
 
+    case Actions.UPDATE_GAME_STATE:
+      return {
+        ...currentState,
+        playing: action.payload
+      };
+
     default:
       return currentState;
   }
