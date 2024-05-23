@@ -1,8 +1,8 @@
 import { io } from "socket.io-client";
 import { dispatch } from "../store";
-import { updateGameState, updateMyId, updatePlayer1, updatePlayer2 } from "../store/actions";
+import { updateGameState, updateMyId, updatePlayer1, updatePlayer2, updateTurn } from "../store/actions";
 
-const socketClient = io("http://localhost:5500")
+export const socketClient = io("http://localhost:5500")
 
 socketClient.on('initializePlayer', (data) => {
     const dataJSON = JSON.parse(data)
@@ -30,4 +30,10 @@ socketClient.on('startGame', (data) => {
             updateGameState(true, true)
         )
     }
+})
+
+socketClient.on('updateTurn', (data) => {
+    dispatch(
+        updateTurn(data, true)
+    )
 })

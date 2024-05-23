@@ -28,13 +28,24 @@ class AppContainer extends HTMLElement {
             pageTitle.innerText = "Piedra, papel o tijera"
             pageContainer.appendChild(pageTitle)
 
-            const pageInfo = this.ownerDocument.createElement("p")
+            const idInfo = this.ownerDocument.createElement("p")
             if (state.myId) {
-                pageInfo.innerText = `Conectado con ID ${state.myId}`
+                idInfo.innerText = `Conectado con ID ${state.myId}`
+                if (state.player1) {
+                    idInfo.innerText += `Tu eres player1`
+                } else if (state.player2) {
+                    idInfo.innerText += `Tu eres player2`
+                }
             } else {
-                pageInfo.innerText = "Esperando que comience el juego"
+                idInfo.innerText = "Esperando que comience el juego"
             }
 
+            pageContainer.appendChild(idInfo)
+
+            const pageInfo = this.ownerDocument.createElement("p")
+            if (state.currentTurn) {
+                pageInfo.innerText = `Es el turno de ${state.currentTurn}`
+            }
             pageContainer.appendChild(pageInfo)
 
             const buttonContainer = this.ownerDocument.createElement("div")
@@ -55,6 +66,20 @@ class AppContainer extends HTMLElement {
             scissorsButton.setAttribute("class", "button")
             scissorsButton.style.backgroundImage = "url('/src/assets/png/victory-hand_270c-fe0f.png')"
             buttonContainer.appendChild(scissorsButton)
+
+            if (state.playing) {
+                rockButton.addEventListener('click', () => {
+                    console.log("rockButton")
+                })
+
+                paperButton.addEventListener('click', () => {
+                    console.log("paperButton")
+                })
+
+                scissorsButton.addEventListener('click', () => {
+                    console.log("scissorsButton")
+                })
+            }
         }
     }
 }

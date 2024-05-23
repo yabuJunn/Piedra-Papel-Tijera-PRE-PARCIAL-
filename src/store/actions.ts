@@ -13,13 +13,19 @@ export const updatePlayer1 = (payload: string | undefined, reload: boolean): Act
 });
 
 export const updatePlayer2 = (payload: string | undefined, reload: boolean): Action => ({
-  type: Actions.UPDATE_PLAYER_1,
+  type: Actions.UPDATE_PLAYER_2,
   payload,
   reload
 });
 
 export const updateGameState = (payload: undefined | boolean, reload: boolean): Action => ({
   type: Actions.UPDATE_GAME_STATE,
+  payload,
+  reload
+});
+
+export const updateTurn = (payload: undefined | boolean, reload: boolean): Action => ({
+  type: Actions.UPDATE_TURN,
   payload,
   reload
 });
