@@ -35,3 +35,9 @@ export const updatePlayerType = (payload: undefined | boolean, reload: boolean):
   payload,
   reload
 });
+
+export const updateWins = (payload: undefined | boolean, reload: boolean): Action => ({
+  type: Actions.UPDATE_WINS,
+  payload,
+  reload
+});

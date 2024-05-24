@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 import { dispatch } from "../store";
-import { updateGameState, updateMyId, updatePlayer1, updatePlayer2, updatePlayerType, updateTurn } from "../store/actions";
+import { updateGameState, updateMyId, updatePlayer1, updatePlayer2, updatePlayerType, updateTurn, updateWins } from "../store/actions";
 
 export const socketClient = io("http://localhost:5500")
 
@@ -45,5 +45,12 @@ socketClient.on('updateTurn', (data) => {
     console.log(`Se actualizo el turno a: ${data}`)
     dispatch(
         updateTurn(data, true)
+    )
+})
+
+socketClient.on('updateWins', (response) => {
+    const resJSON = JSON.parse(response)
+    dispatch(
+        updateWins(resJSON, true)
     )
 })

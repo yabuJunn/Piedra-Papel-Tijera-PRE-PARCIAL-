@@ -117,4 +117,9 @@ function winningComprobation(player1Move: string | undefined, player2Move: strin
     }
 
     console.log(database)
+
+    globalSocket?.emit('updateWins', JSON.stringify({
+        player1Wins: database.player1Wins,
+        player2Wins: database.player2Wins
+    }))
 }

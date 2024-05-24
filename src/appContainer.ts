@@ -71,6 +71,10 @@ class AppContainer extends HTMLElement {
             scissorsButton.style.backgroundImage = "url('/src/assets/png/victory-hand_270c-fe0f.png')"
             buttonContainer.appendChild(scissorsButton)
 
+            const winsTexts = this.ownerDocument.createElement("p")
+            winsTexts.innerText = `El jugador 1 ha ganado ${state.wins.player1Wins} veces y el jugador 2 ha ganado ${state.wins.player2Wins} veces`
+            pageContainer.appendChild(winsTexts)
+
             if (state.playing) {
                 if (state.currentTurn === state.playerType) {
                     if (state.playerType === "player1") {

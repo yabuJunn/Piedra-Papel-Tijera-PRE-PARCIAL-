@@ -39,6 +39,12 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         playerType: action.payload
       };
 
+    case Actions.UPDATE_WINS:
+      return {
+        ...currentState,
+        wins: action.payload
+      };
+
     default:
       return currentState;
   }
