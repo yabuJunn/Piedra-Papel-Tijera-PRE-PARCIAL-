@@ -49,40 +49,72 @@ function winningComprobation(player1Move: string | undefined, player2Move: strin
         if (database.player2Move === "paper") {
             //Player 2 gano
             console.log("gano jugador 2")
+            if (!database.player2Wins) {
+                database.player2Wins = 1
+            } else {
+                database.player2Wins += 1
+            }
         }
         if (database.player2Move === "scissors") {
             //Player 1 gano
             console.log("gano jugador 1")
+            if (!database.player1Wins) {
+                database.player1Wins = 1
+            } else {
+                database.player1Wins += 1
+            }
         }
     }
 
     if (database.player1Move === "paper") {
         if (database.player2Move === "rock") {
-            //Empate
+            //Player 1 gano
             console.log("gano jugador 1")
+            if (!database.player1Wins) {
+                database.player1Wins = 1
+            } else {
+                database.player1Wins += 1
+            }
         }
         if (database.player2Move === "paper") {
-            //Player 2 gano
+            //Empate
             console.log("empate")
         }
         if (database.player2Move === "scissors") {
-            //Player 1 gano
+            //Player 2 gano
             console.log("gano jugador 2")
+            if (!database.player2Wins) {
+                database.player2Wins = 1
+            } else {
+                database.player2Wins += 1
+            }
         }
     }
 
     if (database.player1Move === "scissors") {
         if (database.player2Move === "rock") {
-            //Empate
+            //Player 2 gano
             console.log("gano jugador 2")
+            if (!database.player2Wins) {
+                database.player2Wins = 1
+            } else {
+                database.player2Wins += 1
+            }
         }
         if (database.player2Move === "paper") {
-            //Player 2 gano
+            //Player 1 gano
             console.log("gano jugador 1")
+            if (!database.player1Wins) {
+                database.player1Wins = 1
+            } else {
+                database.player1Wins += 1
+            }
         }
         if (database.player2Move === "scissors") {
-            //Player 1 gano
+            //Empate
             console.log("empate")
         }
     }
+
+    console.log(database)
 }

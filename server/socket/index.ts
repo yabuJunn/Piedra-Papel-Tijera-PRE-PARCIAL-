@@ -3,7 +3,7 @@ import { Server } from 'socket.io'
 import { createServer } from 'http'
 import { app } from "../express";
 import { database } from "../dataBase";
-import { gameBoxesStateType, moveFunction} from "../utils/winningComprobation";
+import { gameBoxesStateType, moveFunction } from "../utils/winningComprobation";
 
 export let globalSocket: Socket | undefined = undefined
 export const httpServer = createServer(app);
