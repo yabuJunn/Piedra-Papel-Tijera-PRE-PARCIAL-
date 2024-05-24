@@ -3,6 +3,7 @@ import { loadCss } from "./utilities/styles";
 import { addObserver, dispatch, state } from "./store";
 import styles from './appContainer.css'
 import './utilities/socket'
+import { makeAMove } from "./utilities/makeAMove";
 
 class AppContainer extends HTMLElement {
     constructor() {
@@ -72,17 +73,58 @@ class AppContainer extends HTMLElement {
 
             if (state.playing) {
                 if (state.currentTurn === state.playerType) {
-                    rockButton.addEventListener('click', () => {
-                        console.log("rockButton")
-                    })
+                    if (state.playerType === "player1") {
+                        rockButton.addEventListener('click', () => {
+                            // console.log("rockButton")
+                            // console.log(state.currentTurn)
+                            makeAMove({
+                                currentTurn: state.currentTurn,
+                                player1Move: "rock",
+                            })
+                        })
 
-                    paperButton.addEventListener('click', () => {
-                        console.log("paperButton")
-                    })
+                        paperButton.addEventListener('click', () => {
+                            console.log("paperButton")
+                            makeAMove({
+                                currentTurn: state.currentTurn,
+                                player1Move: "paper",
+                            })
+                        })
 
-                    scissorsButton.addEventListener('click', () => {
-                        console.log("scissorsButton")
-                    })
+                        scissorsButton.addEventListener('click', () => {
+                            console.log("scissorsButton")
+                            makeAMove({
+                                currentTurn: state.currentTurn,
+                                player1Move: "scissors",
+                            })
+                        })
+                    }
+
+                    if (state.playerType === "player2") {
+                        rockButton.addEventListener('click', () => {
+                            console.log("rockButton")
+                            makeAMove({
+                                currentTurn: state.currentTurn,
+                                player2Move: "rock",
+                            })
+                        })
+
+                        paperButton.addEventListener('click', () => {
+                            console.log("paperButton")
+                            makeAMove({
+                                currentTurn: state.currentTurn,
+                                player2Move: "paper",
+                            })
+                        })
+
+                        scissorsButton.addEventListener('click', () => {
+                            console.log("scissorsButton")
+                            makeAMove({
+                                currentTurn: state.currentTurn,
+                                player2Move: "scissors",
+                            })
+                        })
+                    }
                 }
             }
         }

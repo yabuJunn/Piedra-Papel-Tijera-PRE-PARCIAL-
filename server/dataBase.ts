@@ -8,4 +8,6 @@ export const database: databaseType = {
     playing: false,
     player1Wins: undefined,
     player2Wins: undefined,
+    player1Move: undefined,
+    player2Move: undefined
 }

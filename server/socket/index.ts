@@ -3,6 +3,7 @@ import { Server } from 'socket.io'
 import { createServer } from 'http'
 import { app } from "../express";
 import { database } from "../dataBase";
+import { gameBoxesStateType, moveFunction} from "../utils/winningComprobation";
 
 export let globalSocket: Socket | undefined = undefined
 export const httpServer = createServer(app);
@@ -37,4 +38,8 @@ io.on('connection', (socket: Socket) => {
         socket.emit('initializePlayer', JSON.stringify({ myId: socket.id, player: "player0" }))
     }
     console.log(database)
+
+    socket.on('move', (data: gameBoxesStateType) => {
+        moveFunction(data)
+    })
 })

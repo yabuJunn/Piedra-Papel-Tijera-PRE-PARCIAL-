@@ -42,6 +42,7 @@ socketClient.on('startGame', (data) => {
 })
 
 socketClient.on('updateTurn', (data) => {
+    console.log(`Se actualizo el turno a: ${data}`)
     dispatch(
         updateTurn(data, true)
     )
