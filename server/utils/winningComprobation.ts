@@ -1,7 +1,8 @@
 import { database } from "../dataBase"
+import { updateStore } from "../services"
 import { globalSocket } from "../socket"
 
-export const moveFunction = (gameBoxesState: gameBoxesStateType) => {
+export const moveFunction = async (gameBoxesState: gameBoxesStateType) => {
     database.currentTurn = gameBoxesState.currentTurn
 
     if (!gameBoxesState.player1Move) {
@@ -32,6 +33,7 @@ export const moveFunction = (gameBoxesState: gameBoxesStateType) => {
     }
 
     // console.log(database)
+    await updateStore(database)
 }
 
 export interface gameBoxesStateType {

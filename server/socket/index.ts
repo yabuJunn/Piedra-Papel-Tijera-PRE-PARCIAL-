@@ -4,6 +4,7 @@ import { createServer } from 'http'
 import { app } from "../express";
 import { database } from "../dataBase";
 import { gameBoxesStateType, moveFunction } from "../utils/winningComprobation";
+import { updateStore } from "../services";
 
 export let globalSocket: Socket | undefined = undefined
 export const httpServer = createServer(app);
@@ -15,7 +16,7 @@ export const io = new Server(httpServer, {
     }
 });
 
-io.on('connection', (socket: Socket) => {
+io.on('connection', async (socket: Socket) => {
     globalSocket = socket
 
     console.log(`A user has connected from: ${socket.client.request.headers.origin}`)
@@ -42,4 +43,6 @@ io.on('connection', (socket: Socket) => {
     socket.on('move', (data: gameBoxesStateType) => {
         moveFunction(data)
     })
+
+    await updateStore(database)
 })
